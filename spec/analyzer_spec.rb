@@ -25,7 +25,7 @@ module EmailPredictor
     end
 
     describe '#predicted_email_for' do
-      context 'if no training data is provided for the given email domain' do
+      context 'when no training data is provided for the given email domain' do
         it 'returns a string saying no data were available for a prediction' do
           result = analyzer.predicted_email_for(name: 'j e', domain: 'em.com')
           message = 'No training data available for that email domain.'
@@ -34,7 +34,7 @@ module EmailPredictor
         end
       end
 
-      context 'if training data for the given domain is analyzed' do
+      context 'when training data for the given domain is provided' do
         it 'returns a string version of the predicted email' do
           result = analyzer.predicted_email_for(
             name: 'jane eyre',
