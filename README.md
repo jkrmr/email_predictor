@@ -8,10 +8,10 @@ Given a data set consisting of names and corresponding email addresses, we want
 to predict the format of email addresses for staff at companies with known email
 addresses. The formats of interest fall into four patterns:
 
-00. "#{first name}.#{last name}"
-00. "#{first name}.#{last initial}"
-00. "#{first initial}.#{last name}"
-00. "#{first initial}.#{last initial}"
+00. `"#{first name}.#{last name}"`
+00. `"#{first name}.#{last initial}"`
+00. `"#{first initial}.#{last name}"`
+00. `"#{first initial}.#{last initial}"`
 
 
 Usage
