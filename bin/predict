@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+
+require 'json'
+require 'options_hash'
+require 'email_predictor'
+
+include EmailPredictor
+
+if __FILE__ == $PROGRAM_NAME
+  # exit with usage notes unless only valid switches are pased
+  options_parser = OptionsHash.new
+  exit 1 unless options_parser.valid?
+
+  # bind command line arguments
+  contact_name, email_domain, json_file = ARGV
+  json_file ||= "#{LIB}/../data/training.json"
+
+  # exit unless all required arguments are passed
+  if contact_name.nil? || email_domain.nil?
+    puts options_parser.banner
+    exit 1
+  end
+
+  # read json dump
+  emails_hsh = JSON.parse File.read(json_file)
+
+  # analyze training data
+  analyzer = Analyzer.new(training_set: emails_hsh)
+
+  # print prediction results to standard out
+  puts analyzer.predicted_email_for(name: contact_name, domain: email_domain)
+end
