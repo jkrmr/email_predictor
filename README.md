@@ -13,6 +13,22 @@ addresses. The formats of interest fall into four patterns:
 00. `"#{first initial}.#{last name}"`
 00. `"#{first initial}.#{last initial}"`
 
+Design
+-------
+
+The supplied data set is read and analyzed, each entry wrapped in an `Email`
+object that manages parsing of the associated name and email address.
+
+The collection of `Email`s is then passed to an `EmailFormat` builder method,
+which decorates each `Email` with an `EmailFormat` matching the given email
+format (or an `Unknown` format if no format matches). The `EmailFormat` provides
+logic to generate an email address adhering to the specific format (strategy
+subclasses of `EmailFormat`) from a passed-in `Email`.
+
+For a given company with known email addresses, the `Analyzer` select the most
+commonly occurring `EmailFormat` and uses that to generate a predicted email
+address from the given command-line arguments.
+
 
 Usage
 -----
