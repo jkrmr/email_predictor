@@ -8,10 +8,10 @@ Given a data set consisting of names and corresponding email addresses, we want
 to predict the format of email addresses for staff at companies with known email
 addresses. The formats of interest fall into four patterns:
 
-00. `"#{first name}.#{last name}"`
-00. `"#{first name}.#{last initial}"`
-00. `"#{first initial}.#{last name}"`
-00. `"#{first initial}.#{last initial}"`
+00. `"#{first name}.#{last name}@#{email domain}"`
+00. `"#{first name}.#{last initial}@#{email domain}"`
+00. `"#{first initial}.#{last name}@#{email domain}"`
+00. `"#{first initial}.#{last initial}@#{email domain}"`
 
 Design
 -------
@@ -21,13 +21,14 @@ object that manages parsing of the associated name and email address.
 
 The collection of `Email`s is then passed to an `EmailFormat` builder method,
 which decorates each `Email` with an `EmailFormat` matching the given email
-format (or an `Unknown` format if no format matches). The `EmailFormat` provides
-logic to generate an email address adhering to the specific format (strategy
-subclasses of `EmailFormat`) from a passed-in `Email`.
+format (or an `Unrecognized` format if no format matches). 
 
-For a given company with known email addresses, the `Analyzer` select the most
+The `EmailFormat` provides logic to generate an email address adhering to the
+specific format (strategy subclasses of `EmailFormat`) from a passed-in `Email`.
+
+For a given company with known email addresses, the `Analyzer` selects the most
 commonly occurring `EmailFormat` and uses that to generate a predicted email
-address from the given command-line arguments.
+address from the name passed as a command-line argument.
 
 
 Usage
