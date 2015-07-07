@@ -20,7 +20,7 @@ module EmailPredictor
       it 'maps each domain to its most frequently occurring format' do
         most_common_format = analyzer.analyzed_data['google.com']
 
-        expect(most_common_format).to be_a Emails::EmailFormat::NameDotName
+        expect(most_common_format).to be_a Emails::EmailFormat::FirstNameDotLastName
       end
     end
 
@@ -52,7 +52,12 @@ module EmailPredictor
         'Jane Doe' => 'jane.doe@alphasights.com',
         'Damon Aw' => 'damon.aw@google.com',
         'Charles Beckworth' => 'charles.beckworth@google.com',
-        'Lewis Puller' => 'l.p@google.com'
+        'Lewis Puller' => 'l.p@google.com',
+        'Ferguson John ' => 'ferguson.john@alphasights.com',
+        'Doe Jane' => 'doe.jane@alphasights.com',
+        'Aw Damon' => 'aw.damon@google.com',
+        'Beckworth Charles' => 'beckworth.charles@google.com',
+        'Puller Lewis' => 'p.l@google.com'
       }
     end
   end

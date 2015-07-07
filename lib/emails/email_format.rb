@@ -9,13 +9,21 @@ module Emails
     def self.detect_for(email:)
       case email.recipient
       when email.name
-        NameDotName.new(email)
+        FirstNameDotLastName.new(email)
       when [email.first_name, email.last_initial]
-        NameDotInitial.new(email)
+        FirstNameDotLastInitial.new(email)
       when [email.first_initial, email.last_name]
-        InitialDotName.new(email)
+        FirstInitialDotLastName.new(email)
       when [email.first_initial, email.last_initial]
-        InitialDotInitial.new(email)
+        FirstInitialDotLastInitial.new(email)
+      when [email.last_initial, email.first_name]
+        LastInitialDotFirstName.new(email)
+      when [email.last_name, email.first_initial]
+        LastNameDotFirstInitial.new(email)
+      when [email.last_initial, email.first_initial]
+        LastInitialDotFirstInitial.new(email)
+      when [email.last_name, email.first_name]
+        LastNameDotFirstName.new(email)
       else
         Unrecognized.new(email)
       end

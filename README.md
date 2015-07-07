@@ -94,25 +94,25 @@ Emails::EmailFormat
   #domain
     delegates to the decorated email
 
-Emails::EmailFormat::NameDotInitial
+Emails::EmailFormat::FirstNameDotLastInitial
   #predicted_address_for
     generates an appropriate formatted predicted email
   #domain
     delegates to the decorated email
 
-Emails::EmailFormat::InitialDotName
+Emails::EmailFormat::FirstInitialDotLastName
   #predicted_address_for
     generates an appropriate formatted predicted email
   #domain
     delegates to the decorated email
 
-Emails::EmailFormat::InitialDotInitial
+Emails::EmailFormat::FirstInitialDotLastInitial
   #predicted_address_for
     generates an appropriate formatted predicted email
   #domain
     delegates to the decorated email
 
-Emails::EmailFormat::NameDotName
+Emails::EmailFormat::FirstNameDotLastName
   #predicted_address_for
     generates an appropriate formatted predicted email
   #domain

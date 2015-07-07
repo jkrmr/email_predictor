@@ -36,7 +36,7 @@ module EmailPredictor
     #
     # @param training_set [Hash] format: { 'Person Name' => 'p.name@email.com'}
     #
-    # @return [Hash] format: { 'Person Name' => <EmailFormat::InitialDotName> }
+    # @return [Hash] format: { 'Person Name' => <EmailFormat::FirstInitialDotLastName> }
     def classify_data(training_set)
       formats = email_formats_from(training_set)
       grouped_data = formats.group_by(&:domain)
