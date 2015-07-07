@@ -2,9 +2,9 @@ require 'spec_helper'
 
 module Emails
   class EmailFormat
-    describe InitialDotInitial do
+    describe FirstNameDotLastInitial do
       let(:email) { Email.new('user one', 'user.one@email.com') }
-      subject(:format) { InitialDotInitial.new(email) }
+      subject(:format) { FirstNameDotLastInitial.new(email) }
 
       describe '#domain' do
         it 'delegates to the decorated email' do
@@ -18,7 +18,7 @@ module Emails
 
           generated_email = format.predict_address_for(email: partial_email)
 
-          expect(generated_email).to eq 'u.t@email.com'
+          expect(generated_email).to eq 'user.t@email.com'
         end
       end
     end

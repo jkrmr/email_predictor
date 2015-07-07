@@ -2,9 +2,9 @@ require 'spec_helper'
 
 module Emails
   class EmailFormat
-    describe NameDotName do
+    describe FirstNameDotLastName do
       let(:email) { Email.new('user one', 'user.one@email.com') }
-      subject(:format) { NameDotName.new(email) }
+      subject(:format) { FirstNameDotLastName.new(email) }
 
       describe '#domain' do
         it 'delegates to the decorated email' do
