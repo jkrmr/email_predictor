@@ -20,11 +20,11 @@ module Emails
       end
     end
 
-    describe '#recipient' do
-      it "returns the email recipient's split email address, sans domain" do
-        recipient = email.recipient
+    describe '#username' do
+      it "returns the email recipient's email username" do
+        username = email.username
 
-        expect(recipient).to be_nil
+        expect(username).to be_nil
       end
     end
 

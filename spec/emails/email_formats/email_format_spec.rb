@@ -17,7 +17,7 @@ module Emails
 
         abstract_meth = -> { format.predict_address_for(email: partial_email) }
 
-        expect { abstract_meth.call }.to raise_error(NotImplementedError)
+        expect { abstract_meth.call }.to raise_error(NoMethodError)
       end
     end
 
